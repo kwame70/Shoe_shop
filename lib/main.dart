@@ -22,6 +22,21 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
+          titleMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          bodySmall: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+          ),
+        ),
+        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
