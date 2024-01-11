@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
+import "package:shoe_app/cart_provider.dart";
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key, required this.product});
@@ -95,7 +97,29 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (selectedSize != 0) {
+                        context.read<CartProvider>().addProduct({
+                          "id": widget.product["id"],
+                          "title": widget.product["title"],
+                          "price": widget.product["price"],
+                          "company": widget.product["company"],
+                          "imageUrl": widget.product["imageUrl"],
+                          "size": selectedSize,
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Product added successfully"),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Please select a size"),
+                          ),
+                        );
+                      }
+                    },
                     icon: const Icon(
                       Icons.shopping_cart,
                       color: Colors.black,

@@ -48,14 +48,3 @@ final products = [
     "imageUrl": "assets/images/sk.png",
   },
 ];
-
-final cart = [
-  {
-    "id": "2",
-    "title": "Men's Nike Shoe",
-    "price": 250.21,
-    "company": "Nike",
-    "imageUrl": "assets/images/n1.png",
-    "size": 8,
-  }
-];
